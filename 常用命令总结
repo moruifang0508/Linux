@@ -1,0 +1,9 @@
+1 find
+1) find `pwd` -type f
+查找当前目录及其子目录下所有文件，并列出绝对路经
+2）find ./glad/ -type f 
+在当前目录或起所有子目录下查找文件夹glad，并将其下及所有子目录下的文件，返回所有文件的相对路经
+3）find `pwd` -type f > aaa.lst
+將返回的结果输入到文件aaa.lst中
+4)find `pwd` -type f | wc -l
+|为管道式命令，將结果返回给下一级，该命令为將find查到的所有文件传给wc命令，而wc -l为列出所有行的个数
