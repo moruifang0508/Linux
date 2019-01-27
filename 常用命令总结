@@ -11,3 +11,9 @@
 2 sed命令
 1)sed -i 's#./#1\t./#' aaa.lst
 將文件aaa.lst中所有字符串'./'替换为字符串'1\t./'
+
+3 合并文件
+1）cat file1.txt file2.txt file3.txt > file.lst
+將file1.txt file2.txt file3.txt合并到fiel.lst中
+2）cat file1.txt>>file2.txt
+將file1.txt追加到file2.txt后面
