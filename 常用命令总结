@@ -1,4 +1,4 @@
-1 find
+1 find命令
 1) find `pwd` -type f
 查找当前目录及其子目录下所有文件，并列出绝对路经
 2）find ./glad/ -type f 
@@ -7,3 +7,7 @@
 將返回的结果输入到文件aaa.lst中
 4)find `pwd` -type f | wc -l
 |为管道式命令，將结果返回给下一级，该命令为將find查到的所有文件传给wc命令，而wc -l为列出所有行的个数
+
+2 sed命令
+1)sed -i 's#./#1\t./#' aaa.lst
+將文件aaa.lst中所有字符串'./'替换为字符串'1\t./'
