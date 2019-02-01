@@ -171,6 +171,10 @@ B=$2 #將位置$2的数值读入，并赋值给变量B
 C=$($A+$B) #將变量A和变量B相加，將结果赋值给C
 echo $C #显示C的数值
 
+25 解压命令
+语法： unzip filename.zip
+语法 tar -zcvf filename.zip
+
     
 
 
