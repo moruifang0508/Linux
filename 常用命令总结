@@ -11,6 +11,16 @@
 2 sed命令
 1)sed -i 's#./#1\t./#' aaa.lst
 將文件aaa.lst中所有字符串'./'替换为字符串'1\t./'
+2)sed -i 'ni\x' aaa.lst
+在文件aaa.lst中的第n行前面添加x内容
+3）sed -i 'na\x' aaa.lst
+在文件aaa.lst中的第n行后面添加x内容
+4）sed -i '/m/i\x' aaa.lst
+在文件aaa.lst中在匹配m字符串的行的前面添加x内容
+5）sed -i '/m/a\x' aaa.lst
+在文件aaa.lst中在匹配m字符串的行的后面x内容
+i表示infront，前面， a表示after，后面
+
 
 3 合并文件
 1）cat file1.txt file2.txt file3.txt > file.lst
@@ -43,5 +53,78 @@
         2）mv 源文件名  目标文件夹名：相当于把源文件名移动到目标文件夹名中
         3）mv 源文件夹名 目标文件夹名（源文件夹名存在，目标文件夹名不存在）：相当于原文夹名重新命名
         4）mv 源文件夹名 目标文件夹名 （两文件夹均存在）：將源文件夹名移动到目标文件夹名下
+        
+  9 语法： wget 网址
+    说明：下载文件
+    
+  10 语法： if 判断语句
+          then
+          命令
+          else
+          命令
+          fi
+     说明：逻辑判断
+     
+   11 语法：if 判断语句
+          then
+          命令
+          elif 判断语句
+          then
+          命令
+          else
+          命令
+          fi
+      说明：分支逻辑判断
+      
+   12 语法： while 判断语句
+           do
+           命令
+           done
+      说明：while循环语句
+      
+   13 语法： for 变量 in 列表
+           do
+           命令
+           done
+      说明：for循环语句
+      例子：
+      1 for n in {1..10}
+        do
+        echo $n
+        done
+        
+      2 for file in a1 a2 a3 a4 a5
+        do 
+        diff aa/$file bb/$file
+        done
+        
+ 14 语法： echo 表达式
+    说明：输出，相当于print
+    
+ 15 查看文件的命令有：cat、more、less、head、sed和tail等。如： 
+ 查看文件的前5行： head -5 test.log
+ 查看文件的后3行： tail -3 test.log 或 tail -n 3 test.log
+ 查看文件的第5行到第10行： sed -n '5,10p' test.log
+ 查看文件： more test.log
+ 实时监视，即不停地读取最新内容：tail -f test.log
+ 可以用ctrl+c终止
+ 
+ 
+    
+   
+ 16 语法： diff [optional] 文件1 文件2
+    说明： 比较两个文件的内容
+         optional: -w : 忽略空格
+                   -E : 忽略制表符
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-
+  
