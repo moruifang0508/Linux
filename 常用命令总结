@@ -175,6 +175,7 @@ echo $C #显示C的数值
 语法： unzip filename.zip
 语法 tar -zcvf filename.zip
 
-    
-
+26 可以用git命令下载github中的资料到本地
+安装： sudo apt-get install git
+下载github中的资料：  git clone 网址
 
