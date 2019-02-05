@@ -179,3 +179,8 @@ echo $C #显示C的数值
 安装： sudo apt-get install git
 下载github中的资料：  git clone 网址
 
+27 语法：nautilus 文件夹的路径
+   说明：打开文件夹
+   
+   
+  
