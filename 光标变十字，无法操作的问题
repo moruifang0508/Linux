@@ -1,0 +1,27 @@
+原因:没有进入python环境前就运行了import命令，import还处于运行状态
+解决：
+方法1：查看进程，然后將import进程kill掉：
+
+lyc: ~ $ ps
+  PID TTY          TIME CMD
+ 3182 pts/2    00:00:00 bash
+ 3235 pts/2    00:00:00 top
+ 3268 pts/2    00:00:00 import
+ 3277 pts/2    00:00:00 ps
+lyc: ~ $ kill -9 3268 #import进程为3268
+
+或者：
+lyc: ~ $ ps |grep import
+ 3392 pts/2    00:00:00 import
+lyc: ~ $ kill -9 3392
+lyc: ~ $ 
+
+2 直接关掉终端：
+Alt+F4
+
+3 直接重启：
+reboot
+
+
+
+
