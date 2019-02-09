@@ -22,7 +22,7 @@
 i表示infront，前面， a表示after，后面
 
 
-3 合并文件
+3 合并文件，cat是concatenate的缩写，意为串联
 1）cat file1.txt file2.txt file3.txt > file.lst
 將file1.txt file2.txt file3.txt合并到fiel.lst中
 2）cat file1.txt>>file2.txt
