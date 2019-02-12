@@ -200,5 +200,29 @@ echo $C #显示C的数值
    
    实例：
     ln -s /bin/hello.sh /usr/local/bin/hello        # -s 是代号（symbolic）的意思。
+    
+32 语法：sudo apt-get install 程序名称
+   说明：安装程序
+   实例：sudo apt-get install vim #安装vim
    
+33 设置软件更新的源：setting->software&updates 
+   设置完了以后 要在终端中输入： sudo apt-get update
+   
+34 在ubuntu挂载硬盘出现错误：mount:unknown filesystem type xxxx
+   处理方法：sudo apt-get install exfat-fuse
+   
+35 查看ubuntu版本
+   方法一：cat /etc/issue
+   方法二：sudo lsb_release -a
+   
+36 poweroff #关机
+   reboot #重启
   
+37 jupyter notebook中如果cell的模式是markdown模式的时候，使用tab是缩进的功能，如果是code模式的时候是自动补全的功能。
+jupyter中的insert命令也能管用，如果该模式被打开，输入字符时，后面的字符会相应被删除。
+在终端退出jupyter notebook: ctrl+c,然后按提示输入y。
+ 
+38 安装ubuntu的步骤：
+1）将启动的顺序设置为u盘启动：开机时按f2，进入设置模式，在boot sequence中将UEFI:General UDisk 5.00,Partition 1顺序放在第一位。电脑自动重启。
+2）选择*Install Ubuntu
+
