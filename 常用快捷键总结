@@ -1,0 +1,41 @@
+
+
+常见桌面快捷键：
+Ctrl+T：在同一个窗口打开新的标签
+Ctrl+W：关闭当前标签
+
+
+
+常见终端快捷键
+
+    Ctrl + Alt + T：打开终端
+    Alt+F4：一次性关闭终端
+    Tab：命令或文件名自动补全
+    Ctrl + Shift + C：复制
+    Ctrl + Shift + X：剪切
+    Ctrl + Shift + V：粘贴
+    Ctrl + Shift + T：在同一个窗口新建终端标签页
+    Ctrl + Shift + N：新建终端窗口
+    Ctrl + D：关闭当前终端
+    Ctrl + L：清除屏幕
+    Ctrl + C：终止当前任务
+    UP：显示上一条历史命令
+    DOWN：显示下一条历史命令
+    Ctrl + A：光标移动到行首
+    Ctrl + E：光标移动到行尾
+    Ctrl + Z：把当前任务放到后台运行
+    Ctrl + PageUp：前一个终端标签页
+    Ctrl + PageDown：下一个终端标签页
+    F1：打开帮助指南
+    F11：全屏切换
+    
+    Ctrl + →：光标移动到下一个单词的词尾
+    Ctrl + ←：光标移动到前一个单词的词首
+    Ctrl + U：剪切从行的开头到光标前一个位置的所有字符
+    Ctrl + K：剪切从光标位置到行末的所有字符
+    Ctrl + Y：粘贴Ctrl + U/Ctrl + K剪切的内容
+    Ctrl + W：删除光标位置的前一个单词（Alt + Backspace组合键功能）
+    Ctrl + &：恢复删除的内容
+    Ctrl + Win + D：最小化或恢复所有窗口
+    Win + W：展示所有窗口        
+    Win + T：打开回收站
