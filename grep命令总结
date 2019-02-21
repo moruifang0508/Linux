@@ -1,0 +1,94 @@
+grep命令用于在指定文件中按行全局搜索指定的字符串，并將搜索出的行打印出来，配合正则表达式能力会大大增强
+lyc: ~ $ cat testgrep.txt 
+test abc1332t
+tesaa  abcd41ie
+1grr testab abcee
+13rrgttestabt 444
+TESTabbb
+
+1）
+lyc: ~ $ grep test testgrep.txt #搜索字符串test 也可以用“test”，默认区分大小写
+test abc1332t
+1grr testab abcee
+13rrgttestabt 444
+
+2）
+lyc: ~ $ grep -i "test" testgrep.txt # 用-i可不区分大小写
+test abc1332t
+1grr testab abcee
+13rrgttestabt 444
+TESTabbb
+
+3)
+lyc: ~ $ grep "test" -i -n testgrep.txt  #用-n可以將行号列出来
+1:test abc1332t
+3:1grr testab abcee
+4:13rrgttestabt 444
+5:TESTabbb
+ 
+4)
+lyc: ~ $ grep test -i -c testgrep.txt #只打印出符合条件的总行数，而不需要打印出行的内容
+4
+
+5)
+lyc: ~ $ grep test -i -o testgrep.txt #用-o只打印出被匹配到的关键字，而不是整行都被打印，但是如果一行中有多个匹配的字符串，將各占一行分开打印出来
+test
+test
+test
+TEST
+
+6）
+如果想显示符合条件的行之前的行，则用-B，B是before的缩写，并且B后面要加数字，表示要显示前几行
+同理，-A表示要显示后几行，-C为-A和-B的综合。A为after的缩写，C为context（上下文）
+lyc: ~ $ cat aaa.txt 
+姓名：王文
+年龄：20
+性别：男
+
+姓名：李丽
+年龄：39
+性别：女
+
+姓名：郭刚
+年龄：20
+性别：男
+lyc: ~ $ grep -B1 "年龄：20" aaa.txt #-B1表示显示前一行，也可以用其他的整数
+姓名：王文
+年龄：20
+--
+姓名：郭刚
+年龄：20
+
+7）
+如果想精确匹配某个字符串，即字符串作为一个单独的层存在，而不是存在某个字符串中，则用-w，w为word的缩写
+lyc: ~ $ cat testgrep.txt 
+test abc1332t
+tesaa  abcd41ie
+1grr testab abcee
+13rrgttestabt 444
+TESTabbb
+lyc: ~ $ grep -w test testgrep.txt 
+test abc1332t
+
+8）
+如果需要方向查找，即查找不包括某个字符串的行，就用-v
+lyc: ~ $ grep -i -v "test" testgrep.txt 
+tesaa  abcd41ie
+
+
+9）
+如果想匹配多个字符串，只要匹配其中之一就会打印出来，则用-e
+lyc: ~ $ grep -e "test" -e "abc" testgrep.txt 
+test abc1332t
+tesaa  abcd41ie
+1grr testab abcee
+13rrgttestabt 444
+
+10）
+如果只关心文件中是否有某字符串，而不关心内容，可以用-q，即静默模式，但是要配合echo $?,如果返回0,则表示有，如果返回1,则表示没有。
+lyc: ~ $ grep -q "test" testgrep.txt 
+lyc: ~ $ echo $?
+0
+lyc: ~ $ grep -q "abcdefg" testgrep.txt 
+lyc: ~ $ echo $?
+1
