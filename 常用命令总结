@@ -226,3 +226,4 @@ jupyter中的insert命令也能管用，如果该模式被打开，输入字符�
 1）将启动的顺序设置为u盘启动：开机时按f2，进入设置模式，在boot sequence中将UEFI:General UDisk 5.00,Partition 1顺序放在第一位。电脑自动重启。
 2）选择*Install Ubuntu
 
+39 alias #查询别名
