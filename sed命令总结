@@ -1,0 +1,195 @@
+
+sed是一种文本编辑工具，以行为单位进行处理，可以对数据行进行替换、删除、新增、选取等工作
+
+
+1）
+d：删除某行
+lyc: ~ $ cat testsed.txt 
+me is bettythisthis this
+This is your dog
+my dog's name is frankthisabcd
+This is your fish tishi this
+my fish's name isthisthisabc this  george
+This is your goat
+my goat's name is adam
+
+
+lyc: ~ $ sed '1d' testsed.txt #删除第一行
+This is your dog
+my dog's name is frankthisabcd
+This is your fish tishi this
+my fish's name isthisthisabc this  george
+This is your goat
+my goat's name is adam
+
+
+lyc: ~ $ sed '$d' testsed.txt #删除最后一行
+me is bettythisthis this
+This is your dog
+my dog's name is frankthisabcd
+This is your fish tishi this
+my fish's name isthisthisabc this  george
+This is your goat
+
+
+lyc: ~ $ sed '2,4d' testsed.txt #删除第2行到第4行
+me is bettythisthis this
+my fish's name isthisthisabc this  george
+This is your goat
+my goat's name is adam
+
+
+lyc: ~ $ sed '2,$d' testsed.txt  #删除第2行到最后一行
+me is bettythisthis this
+
+2）
+显示某行，p和-n结合使用，p为打印出来，-n为使用安静(silent)模式
+lyc: ~ $ cat testsed.txt 
+me is bettythisthis this
+This is your dog
+my dog's name is frankthisabcd
+This is your fish tishi this
+my fish's name isthisthisabc this  george
+This is your goat
+my goat's name is adam
+
+lyc: ~ $ sed -n '1p' testsed.txt #显示第1行
+me is bettythisthis this
+
+lyc: ~ $ sed -n '$p' testsed.txt #显示最后一行
+my goat's name is adam
+
+lyc: ~ $ sed -n '1,3p' testsed.txt #显示第1到第3行
+me is bettythisthis this
+This is your dog
+my dog's name is frankthisabcd
+
+lyc: ~ $ sed -n '2,$p' testsed.txt #显示第2到最后一行
+This is your dog
+my dog's name is frankthisabcd
+This is your fish tishi this
+my fish's name isthisthisabc this  george
+This is your goat
+my goat's name is adam
+
+使用模式进行查询
+lyc: ~ $ sed -n '/this/p' testsed.txt #查询关键字所在所有行
+me is bettythisthis this
+my dog's name is frankthisabcd
+This is your fish tishi this
+my fish's name isthisthisabc this  george
+
+lyc: ~ $ sed -n '/\$/p' testsed.txt #查询关键字$所在所有行，使用反斜杠\屏蔽特殊含义，testsed.txt中刚好没有字符$，所以没有返回
+
+3）
+a：在行的后面增加新的一行
+lyc: ~ $ cat testsed.txt 
+me is bettythisthis this
+This is your dog
+my dog's name is frankthisabcd
+This is your fish tishi this
+my fish's name isthisthisabc this  george
+This is your goat
+my goat's name is adam
+
+lyc: ~ $ sed '1a you are' testsed.txt #在第1行的后面增加新的一行，内容为you are
+me is bettythisthis this
+you are
+This is your dog
+my dog's name is frankthisabcd
+This is your fish tishi this
+my fish's name isthisthisabc this  george
+This is your goat
+my goat's name is adam
+
+lyc: ~ $ sed '1,3a you are' testsed.txt #在第1到第3行的后面增加新的一行
+me is bettythisthis this
+you are
+This is your dog
+you are
+my dog's name is frankthisabcd
+you are
+This is your fish tishi this
+my fish's name isthisthisabc this  george
+This is your goat
+my goat's name is adam
+
+lyc: ~ $ sed '1a you are\nwelcome' testsed.txt #在第一行的后面增加多行，使用换行符\n
+me is bettythisthis this
+you are
+welcome
+This is your dog
+my dog's name is frankthisabcd
+This is your fish tishi this
+my fish's name isthisthisabc this  george
+This is your goat
+my goat's name is adam
+
+4)
+c:替换一行或多行
+lyc: ~ $ cat testsed.txt 
+me is bettythisthis this
+This is your dog
+my dog's name is frankthisabcd
+This is your fish tishi this
+my fish's name isthisthisabc this  george
+This is your goat
+my goat's name is adam
+
+lyc: ~ $ sed '1c aa' testsed.txt #將第1行的内容替换为aa
+aa
+This is your dog
+my dog's name is frankthisabcd
+This is your fish tishi this
+my fish's name isthisthisabc this  george
+This is your goat
+my goat's name is adam
+
+lyc: ~ $ sed '1,3c aa' testsed.txt #將第1到第3行的内容替换为aa
+aa
+This is your fish tishi this
+my fish's name isthisthisabc this  george
+This is your goat
+my goat's name is adam
+
+5）s：替换行中的某一部分， 默认每行只替换一次，如果有g则替换行中所有的匹配，
+格式如 sed 's/旧字符串/新字符串/' 或者's/旧字符串/新字符串/'
+lyc: ~ $ sed  's/this/aaa/' testsed.txt #只匹配第一个
+me is bettyaaathis this
+This is your dog
+my dog's name is frankaaaabcd
+This is your fish tishi aaa
+my fish's name isaaathisabc this  george
+This is your goat
+my goat's name is adam
+
+lyc: ~ $ sed  's/this/aaa/g' testsed.txt #替换所有匹配的项
+me is bettyaaaaaa aaa
+This is your dog
+my dog's name is frankaaaabcd
+This is your fish tishi aaa
+my fish's name isaaaaaaabc aaa  george
+This is your goat
+my goat's name is adam
+
+6）
+-i：插入或删除，直接更改源文件
+lyc: ~ $ sed -i '$a bye' testsed.txt #在最后一行插入bye
+lyc: ~ $ cat testsed.txt 
+me is bettythisthis this
+This is your dog
+my dog's name is frankthisabcd
+This is your fish tishi this
+my fish's name isthisthisabc this  george
+This is your goat
+my goat's name is adam
+bye
+
+lyc: ~ $ sed -i '/this/d' testsed.txt #將由字符串this的行删除
+lyc: ~ $ cat testsed.txt 
+This is your dog
+This is your goat
+my goat's name is adam
+bye
+
+
