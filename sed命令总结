@@ -42,6 +42,34 @@ my goat's name is adam
 lyc: ~ $ sed '2,$d' testsed.txt  #删除第2行到最后一行
 me is bettythisthis this
 
+
+lyc: ~ $ cat testsed.txt 
+This is your dogthis
+
+This thisisthisThis your goat
+
+eeeeethisthisabcdj/
+
+
+my goat's name is adam
+bye
+lyc: ~ $ sed '/^$/d' testsed.txt  #删除空白行
+This is your dogthis
+This thisisthisThis your goat
+eeeeethisthisabcdj/
+my goat's name is adam
+bye
+
+lyc: ~ $ sed '/^This/d'  testsed.txt #删除以my开头的行
+
+
+eeeeethisthisabcdj/
+
+
+my goat's name is adam
+bye
+
+
 2）
 显示某行，p和-n结合使用，p为打印出来，-n为使用安静(silent)模式
 lyc: ~ $ cat testsed.txt 
@@ -171,6 +199,31 @@ This is your fish tishi aaa
 my fish's name isaaaaaaabc aaa  george
 This is your goat
 my goat's name is adam
+
+lyc: ~ $ cat testsed.txt 
+This is your dogthis
+This thisisthisThis your goat
+eeeeethisthisabcdj/
+my goat's name is adam
+bye
+
+lyc: ~ $ sed -n 's/this/aaa/p' testsed.txt #只打印那些发生替换的行
+This is your dogaaa
+This aaaisthisThis your goat
+eeeeeaaathisabcdj/
+
+lyc: ~ $ echo sksksksksksk | sed 's/sk/SK/3g' #从第3处匹配开始替换
+skskSKSKSKSK
+
+lyc: ~ $ echo sksksksksksk | sed 's:sk:SK:g' #在sed中除了用/作为定界符，也可以使用其它任意的定界符，如：、|等
+SKSKSKSKSKSK
+lyc: ~ $ echo sksksksksksk | sed 's|sk|SK|g'
+SKSKSKSKSKSK
+
+lyc: ~ $ echo '/usr/local/bin' | sed 's/\/usr\/local\/bin/\/USR\/LOCAL\/BIN/g' #当定界符出现在字符内部时，需要进行转义
+/USR/LOCAL/BIN
+
+
 
 6）
 -i：插入或删除，直接更改源文件
