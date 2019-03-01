@@ -37,9 +37,21 @@ i表示infront，前面， a表示after，后面
 
 5 scp命令
 用于本地机器与远程登录机器中间传递文件
+格式：
+scp [参数] [原路径] [目标路径]
+
+如从本地复制文件或文件夹到远程电脑：
+ scp local_file remote_username@remote_ip:remote_folder 
+ 例子：
+ scp -r python+opencv/  lyc@192.168.1.6:~/Desktop/opencv/
+ ##将当前目录的文件夹 python+opencv下的所有文件复制到远程电脑的/Desktop/opencv/文件夹下，如果文件夹opencv不存在，会自动创建
+
+从远程电脑复制到本地，位置刚好倒过来：
+scp root@192.168.120.204:/opt/soft/nginx-0.5.38.tar.gz /opt/soft/
+
 
 6 语法： cp [选项] 源文件或目录 目标文件或目录
-  说明：复制文件
+  说明：复制文件/
   选项：
   -a：dpr的组合
   -d：拷贝时使用链接
