@@ -251,3 +251,8 @@ jupyter中的insert命令也能管用，如果该模式被打开，输入字符�
 
 41 pip show #可以列出所有用pip安装的程序的版本，可以通过这种方法查找某个程序的具体名称
  pip show opencv-python #可以查到opencv-python详细的信息，如安装路径等，从而能够找到源码
+ 
+42 使用命令dpkg安装和卸载.deb包
+sudo dpkg -i package.deb #安装， -i等价于--install
+sudo dpkg -r package  #卸载，-r等价于--remove
+
