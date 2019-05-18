@@ -71,7 +71,7 @@ lyc: ~ $ grep -w test testgrep.txt
 test abc1332t
 
 8）
-如果需要方向查找，即查找不包括某个字符串的行，就用-v
+如果需要反方向查找，即查找不包括某个字符串的行，就用-v
 lyc: ~ $ grep -i -v "test" testgrep.txt 
 tesaa  abcd41ie
 
