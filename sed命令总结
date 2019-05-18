@@ -60,7 +60,7 @@ eeeeethisthisabcdj/
 my goat's name is adam
 bye
 
-lyc: ~ $ sed '/^This/d'  testsed.txt #删除以my开头的行
+lyc: ~ $ sed '/^This/d'  testsed.txt #删除以This开头的行
 
 
 eeeeethisthisabcdj/
